@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Chart.js integration for Django admin models"
 authors = ["Dave Gaeddert <dave.gaeddert@dropseed.io>"]
 license = "MIT"
+packages = [
+    { include = "admincharts" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
