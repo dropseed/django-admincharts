@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "django-admincharts"
 version = "0.1.0"
-description = "Chart.js integration for tDjango admin models"
+description = "Chart.js integration for Django admin models"
 authors = ["Dave Gaeddert <dave.gaeddert@dropseed.io>"]
 license = "MIT"
 
@@ -9,6 +9,7 @@ license = "MIT"
 python = "^3.7"
 
 [tool.poetry.dev-dependencies]
+black = "^21.6b0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

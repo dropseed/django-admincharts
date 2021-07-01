@@ -1,6 +1,8 @@
 # django-admincharts
 
-Chart.js integration for Django admin models
+Add [Chart.js](https://www.chartjs.org/docs/latest/) visualizations to your Django admin using a mixin class.
+
+## Example
 
 ![django-admincharts example](https://user-images.githubusercontent.com/649496/124193149-f3c4c380-da8b-11eb-95d9-74e4f81c4c0a.png)
 
@@ -42,3 +44,48 @@ class BillingAccountAdmin(AdminChartMixin, admin.ModelAdmin):
             ],
         }
 ```
+
+## Installation
+
+```console
+$ pip install django-admincharts
+```
+
+Use the `AdminChartMixin` with an `admin.ModelAdmin` class to add a chart to the changelist view.
+
+Options can be set directly on the class:
+
+```python
+from django.contrib import admin
+from admincharts.admin import AdminChartMixin
+
+@admin.register(MyModel)
+class MyModelAdmin(AdminChartMixin, admin.ModelAdmin):
+    list_chart_type = "bar"
+    list_chart_data = {}
+    list_chart_options = {"aspectRatio": 6}
+    list_chart_config = None  # Override the combined settings
+```
+
+Or by using the class methods which gives you access to the queryset being used for the current view:
+
+```python
+class MyModelAdmin(AdminChartMixin, admin.ModelAdmin):
+    def get_list_chart_queryset(self, result_list):
+        ...
+
+    def get_list_chart_type(self, queryset):
+        ...
+
+    def get_list_chart_data(self, queryset):
+        ...
+
+    def get_list_chart_options(self, queryset):
+        ...
+
+    def get_list_chart_config(self, queryset):
+        ...
+```
+
+The `type`, `data`, and `options` are passed directly to Chart.js to render the chart.
+[Look at the Chart.js docs to see what kinds of settings can be used.](https://www.chartjs.org/docs/latest/configuration/)
