@@ -47,8 +47,19 @@ class BillingAccountAdmin(AdminChartMixin, admin.ModelAdmin):
 
 ## Installation
 
+Install from [pypi.org](https://pypi.org/project/django-admincharts/):
+
 ```console
 $ pip install django-admincharts
+```
+
+Add `admincharts` to your Django `INSTALLED_APPS`:
+
+```python
+INSTALLED_APPS = [
+    ...
+    "admincharts",
+]
 ```
 
 Use the `AdminChartMixin` with an `admin.ModelAdmin` class to add a chart to the changelist view.
