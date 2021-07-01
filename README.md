@@ -4,7 +4,7 @@ Add [Chart.js](https://www.chartjs.org/docs/latest/) visualizations to your Djan
 
 ## Example
 
-![django-admincharts example](https://user-images.githubusercontent.com/649496/124193149-f3c4c380-da8b-11eb-95d9-74e4f81c4c0a.png)
+![django-admincharts example](https://user-images.githubusercontent.com/649496/124196798-c3ccee80-da92-11eb-9c2a-c0f94171d071.png)
 
 ```python
 from django.contrib import admin
