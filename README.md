@@ -100,3 +100,8 @@ class MyModelAdmin(AdminChartMixin, admin.ModelAdmin):
 
 The `type`, `data`, and `options` are passed directly to Chart.js to render the chart.
 [Look at the Chart.js docs to see what kinds of settings can be used.](https://www.chartjs.org/docs/latest/configuration/)
+
+By default, the objects in your chart will be the objects that are currently visible in your list view.
+This means that admin controls like [search](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.search_fields) and [list filter](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter) will update your chart,
+and you can use the Django [pagination](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_per_page) [settings](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_max_show_all) to control how many objects you want in your chart at a time.
+If you want, you can also sidestep the list queryset entirely by using overriding `get_list_chart_queryset`.
