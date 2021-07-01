@@ -4,6 +4,11 @@ version = "0.1.0"
 description = "Chart.js integration for Django admin models"
 authors = ["Dave Gaeddert <dave.gaeddert@dropseed.io>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/dropseed/django-admincharts"
+documentation = "https://github.com/dropseed/django-admincharts"
+repository = "https://github.com/dropseed/django-admincharts"
+keywords = ["static", "site", "generator", "jinja"]
 packages = [
     { include = "admincharts" },
 ]
