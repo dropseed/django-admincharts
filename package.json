@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "copy-static": "cp node_modules/chart.js/dist/chart.min.js static/admincharts/chart.min.js"
+  },
+  "dependencies": {
+    "chart.js": "^3.4.0"
+  }
+}
