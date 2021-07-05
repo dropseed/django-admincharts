@@ -1,3 +1,2 @@
 #!/bin/sh -e
-poetry config --local virtualenvs.in-project true
-poetry install
+POETRY_VIRTUALENVS_IN_PROJECT=true poetry install
