@@ -20,4 +20,6 @@ jobs:
     - run: $HOME/bin/deps ci
       env:
         DEPS_TOKEN: ${{ secrets.DEPS_TOKEN }}
-        DEPS_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DEPS_GITHUB_APP_KEY: ${{ secrets.DEPS_GITHUB_APP_KEY }}
+        DEPS_GITHUB_APP_ID: ${{ secrets.DEPS_GITHUB_APP_ID }}
+        DEPS_GITHUB_APP_INSTALLATION_ID: ${{ secrets.DEPS_GITHUB_APP_INSTALLATION_ID }}
