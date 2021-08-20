@@ -2,7 +2,7 @@
 name = "django-admincharts"
 version = "0.1.2"
 description = "Chart.js integration for Django admin models"
-authors = ["Dave Gaeddert <dave.gaeddert@dropseed.io>"]
+authors = ["Dave Gaeddert <dave.gaeddert@dropseed.dev>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/dropseed/django-admincharts"
