@@ -16,6 +16,7 @@ jobs:
         fetch-depth: 0  # all branches and tags
     - uses: dropseed/nextrelease@v0
       with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         prepare_cmd: |
           sed -i -e "s/version = \"[^\"]*\"/version = \"$VERSION\"/g" pyproject.toml
         publish_cmd: |
