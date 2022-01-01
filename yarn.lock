@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-chart.js@3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.6.1.tgz#edcb6584b8d810306f655f89538c00a4f440c58e"
-  integrity sha512-AycnixR0I325Fp3bqQ7wRJbkIJPwz/9IZtUBvdBWMjK5+nKCy6FZ3VejkDTtB9udePEXNt1UYoGTsNL49JoIbg==
+chart.js@3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.7.0.tgz#7a19c93035341df801d613993c2170a1fcf1d882"
+  integrity sha512-31gVuqqKp3lDIFmzpKIrBeum4OpZsQjSIAqlOpgjosHDJZlULtvwLEZKtEhIAZc7JMPaHlYMys40Qy9Mf+1AAg==
