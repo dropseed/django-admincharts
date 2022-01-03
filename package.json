@@ -3,6 +3,6 @@
     "copy-static": "cp node_modules/chart.js/dist/chart.min.js admincharts/static/admincharts/chart.min.js"
   },
   "dependencies": {
-    "chart.js": "3.6.1"
+    "chart.js": "3.7.0"
   }
 }
