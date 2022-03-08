@@ -41,6 +41,10 @@ class AdminChartMixin:
 
     def changelist_view(self, request, extra_context=None):
         response = super().changelist_view(request, extra_context=extra_context)
+        
+        # This could be a redirect and not have context_data
+        if not hasattr(response, "context_data"):
+            return response
 
         if "cl" in response.context_data:
             changelist = response.context_data["cl"]
