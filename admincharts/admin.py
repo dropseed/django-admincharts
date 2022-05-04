@@ -16,9 +16,13 @@ class AdminChartMixin:
             "admincharts/admincharts.js",
         )
 
-    def get_list_chart_queryset(self, result_list):
-        """Returns the current changelist results by default"""
-        return result_list
+    def get_list_chart_queryset(self, changelist):
+        """
+        Returns the current changelist.result_list by default which
+        is the filtered *and* paginated queryset.
+        To ignore pagination, you can return the changelist.queryset instead.
+        """
+        return changelist.result_list
 
     def get_list_chart_type(self, queryset):
         return self.list_chart_type
@@ -48,7 +52,7 @@ class AdminChartMixin:
 
         if "cl" in response.context_data:
             changelist = response.context_data["cl"]
-            chart_queryset = self.get_list_chart_queryset(changelist.result_list)
+            chart_queryset = self.get_list_chart_queryset(changelist)
             response.context_data["adminchart_queryset"] = chart_queryset
             response.context_data[
                 "adminchart_chartjs_config"

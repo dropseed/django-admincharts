@@ -82,7 +82,7 @@ Or by using the class methods which gives you access to the queryset being used 
 
 ```python
 class MyModelAdmin(AdminChartMixin, admin.ModelAdmin):
-    def get_list_chart_queryset(self, result_list):
+    def get_list_chart_queryset(self, changelist):
         ...
 
     def get_list_chart_type(self, queryset):
@@ -104,4 +104,19 @@ The `type`, `data`, and `options` are passed directly to Chart.js to render the 
 By default, the objects in your chart will be the objects that are currently visible in your list view.
 This means that admin controls like [search](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.search_fields) and [list filter](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_filter) will update your chart,
 and you can use the Django [pagination](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_per_page) [settings](https://docs.djangoproject.com/en/3.2/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_max_show_all) to control how many objects you want in your chart at a time.
-If you want, you can also sidestep the list queryset entirely by using overriding `get_list_chart_queryset`.
+To ignore pagination but still respect search/filter,
+you can override the `get_list_chart_queryset` method to return the full queryset:
+
+```python
+class MyModelAdmin(AdminChartMixin, admin.ModelAdmin):
+    def get_list_chart_queryset(self, changelist):
+        return changelist.queryset
+```
+
+And if you want, you can also sidestep the list queryset entirely by using overriding `get_list_chart_queryset` with your own query:
+
+```python
+class MyModelAdmin(AdminChartMixin, admin.ModelAdmin):
+    def get_list_chart_queryset(self, changelist):
+        return MyModel.objects.all()
+```
