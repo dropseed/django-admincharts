@@ -6,6 +6,12 @@ from accounts.admin import AccountAdmin
 from accounts.models import Account
 
 
+class MockChangelist:
+    def __init__(self, queryset):
+        self.queryset = queryset
+        self.result_list = queryset  # Would be the paginated list of objects
+
+
 class AdminTest(TestCase):
     def setUp(self):
         Account.objects.create(
@@ -23,7 +29,9 @@ class AdminTest(TestCase):
         self.model_admin = AccountAdmin(model=Account, admin_site=AdminSite())
 
     def test_admin(self):
-        queryset = self.model_admin.get_list_chart_queryset(Account.objects.all())
+        queryset = self.model_admin.get_list_chart_queryset(
+            MockChangelist(Account.objects.all())
+        )
         self.assertEquals(self.model_admin.get_list_chart_type(queryset), "bar")
         chart_data = self.model_admin.get_list_chart_data(queryset)
         self.assertIn("labels", chart_data)
@@ -39,7 +47,9 @@ class AdminEmptyTest(TestCase):
         self.model_admin = AccountAdmin(model=Account, admin_site=AdminSite())
 
     def test_admin(self):
-        queryset = self.model_admin.get_list_chart_queryset(Account.objects.all())
+        queryset = self.model_admin.get_list_chart_queryset(
+            MockChangelist(Account.objects.all())
+        )
         self.assertEquals(self.model_admin.get_list_chart_type(queryset), "bar")
         self.assertEquals(self.model_admin.get_list_chart_data(queryset), {})
         self.assertEquals(
