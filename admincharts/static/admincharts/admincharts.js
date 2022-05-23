@@ -1,5 +1,7 @@
 window.addEventListener("DOMContentLoaded", function(event) {
-    const chartConfig = JSON.parse(document.getElementById("adminchart-chartjs-config").textContent);
+    const configScript = document.getElementById("adminchart-chartjs-config");
+    if (!configScript) return;
+    const chartConfig = JSON.parse(configScript.textContent);
     if (!chartConfig) return;
     var container = document.getElementById('admincharts')
     var canvas = document.createElement("canvas")
