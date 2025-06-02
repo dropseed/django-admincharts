@@ -1,3 +1,6 @@
+> [!NOTE]
+> This package is archived in favor of working on [Plain](https://plainframework.com/).
+
 # django-admincharts
 
 Add [Chart.js](https://www.chartjs.org/docs/latest/) visualizations to your Django admin using a mixin class.
